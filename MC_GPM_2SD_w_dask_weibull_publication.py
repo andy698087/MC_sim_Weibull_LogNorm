@@ -23,9 +23,12 @@ class SimulPivotMC(object):
         self.CV1 = CVTimeScale
         self.CV2 = self.CV1
         
-        path_to_weibull_parameters_found = 'weibull_params1e-6_mean_025.csv'
-        # Load files for Weibull shape and scale parameters for coresponding mean and CV
-        df_weibull_params = pd.read_csv(path_to_weibull_parameters_found)[['MeanTimeScale','CV','shape_parameter','scale_parameter']]
+        # Weibull shape and scale parameters for coresponding CV
+        weibull_parameters = {'MeanTimeScale':[1.0, 1.0, 1.0],
+                              'CV':[0.15, 0.3, 0.5],
+                              'shape_parameter':[7.906924265775673, 3.713772390158953, 2.1013488127891664],
+                              'scale_parameter': [1.062466408811014,1.1078638656698665,1.1290632634554316]}
+        df_weibull_params = pd.DataFrame(weibull_parameters)
         
         # Weibull shape and scale parameters having the specified MeanTimeScale and CV
         self.shape_parameter, self.scale_parameter = df_weibull_params[ (df_weibull_params['MeanTimeScale'] == MeanTimeScale) & (df_weibull_params['CV'] == CV) ][['shape_parameter','scale_parameter']].iloc[0,:]
