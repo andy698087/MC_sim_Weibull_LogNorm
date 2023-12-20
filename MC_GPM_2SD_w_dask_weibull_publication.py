@@ -189,7 +189,7 @@ if __name__ == '__main__':
     # number of Monte Carlo simulations
     nMonteSim = 1000000
     # Mean in time scale, we choose 0.25, 1, and 3
-    for MeanTimeScale in [0.25, 1, 3]:
+    for MeanTimeScale in [1]:
         # Sample size, we choose 15, 25, 50
         for N in [15, 25, 50]: 
             # coefficient of variation, we choose 0.15, 0.3, 0.5
