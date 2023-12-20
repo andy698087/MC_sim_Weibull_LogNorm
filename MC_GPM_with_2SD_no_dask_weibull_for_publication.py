@@ -47,12 +47,15 @@ random_numbers2_1 = np.random.rand(nSimulForPivot)
 np.random.seed(seed_value - 4)
 random_numbers2_2 = np.random.rand(nSimulForPivot)
 
-path_to_weibull_parameters_found = 'weibull_params1e-6_mean_025.csv'
-# Load files for Weibull shape and scale parameters for coresponding CV
-df_weibull_params = pd.read_csv(path_to_weibull_parameters_found)[['MeanTimeScale','CV','shape_parameter','scale_parameter']]
+# Weibull shape and scale parameters for coresponding CV
+weibull_parameters = {'MeanTimeScale':[1.0, 1.0, 1.0],
+                      'CV':[0.15, 0.3, 0.5],
+                      'shape_parameter':[7.906924265775673, 3.713772390158953, 2.1013488127891664],
+                      'scale_parameter': [1.062466408811014,1.1078638656698665,1.1290632634554316]}
+df_weibull_params = pd.DataFrame(weibull_parameters)
 
 # Mean in time scale, we choose 0.25, 1, and 3
-for MeanTimeScale in [0.25, 1, 3]:
+for MeanTimeScale in [1]:
     # Sample size, we choose 15, 25, and 50
     for N in [15, 25, 50]:
         N1 = N
