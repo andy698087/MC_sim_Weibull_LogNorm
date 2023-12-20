@@ -104,7 +104,7 @@ weibull_params = {'mean':[],'CV':[],'shape_parameter':[],'scale_parameter':[],'M
 # coefficient of variation, we choose 0.15, 0.3, and 0.5
 for CV in [0.15, 0.30, 0.5]:
     # mean in time scale, we choose 0.25, 1, and 3
-    for mean in [0.25, 1, 3]:
+    for mean in [1]:
         print(f'mean, CV: {mean}, {CV}')
         weibull_params['mean'].append(mean)
         weibull_params['CV'].append(CV)
